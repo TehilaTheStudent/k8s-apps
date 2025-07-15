@@ -26,7 +26,7 @@ spec:
             - name: LOOP_SLEEP
               value: "{{ .Values.env.LOOP_SLEEP }}"
             - name: http_proxy
-              valud: http://7.182.101.79:3128
+              value: http://7.182.101.79:3128
             - name: https_proxy
               value: http://7.182.101.79:3128
             - name: HTTP_PROXY
