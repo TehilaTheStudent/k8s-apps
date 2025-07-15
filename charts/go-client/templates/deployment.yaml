@@ -25,3 +25,13 @@ spec:
               value: "{{ .Values.env.ERROR_SLEEP }}"
             - name: LOOP_SLEEP
               value: "{{ .Values.env.LOOP_SLEEP }}"
+            - name: http_proxy
+              valud: http://7.182.101.79:3128
+            - name: https_proxy
+              value: http://7.182.101.79:3128
+            - name: HTTP_PROXY
+              value: http://7.182.101.79:3128
+            - name: HTTPS_PROXY
+              value: http://7.182.101.79:3128
+            - name: no_proxy
+              value: localhost,127.0.0.1,go-server-svc,go-client-svc
