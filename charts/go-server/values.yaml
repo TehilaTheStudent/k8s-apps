@@ -1,0 +1,10 @@
+replicaCount: 3
+image:
+  repository: tehilathestudent/go-server
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 8080
+env:
+  PORT: "8080"

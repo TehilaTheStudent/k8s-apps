@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "go-client.fullname" . }}
+  labels:
+    app: {{ include "go-client.name" . }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "go-client.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "go-client.name" . }}
+    spec:
+      containers:
+        - name: go-client
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: SERVER_URL
+              value: "{{ .Values.env.SERVER_URL }}"
+            - name: ERROR_SLEEP
+              value: "{{ .Values.env.ERROR_SLEEP }}"
+            - name: LOOP_SLEEP
+              value: "{{ .Values.env.LOOP_SLEEP }}"

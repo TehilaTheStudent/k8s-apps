@@ -1,0 +1,13 @@
+replicaCount: 1
+image:
+  repository: tehilathestudent/go-client
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  enabled: false
+  type: ClusterIP
+  port: 8080
+env:
+  SERVER_URL: "http://go-server-svc:8080"
+  ERROR_SLEEP: "2s"
+  LOOP_SLEEP: "5s"

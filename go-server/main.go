@@ -14,8 +14,12 @@ func main() {
 		fmt.Fprintf(w, "Hello from pod: %s\nIP: %s\n", podName, ip)
 	})
 
-	fmt.Println("Listening on :8080")
-	http.ListenAndServe(":8080", nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	fmt.Printf("Listening on :%s\n", port)
+	http.ListenAndServe(":"+port, nil)
 }
 
 func getLocalIP() string {
