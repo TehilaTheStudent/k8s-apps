@@ -1,5 +1,6 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
+# kind: Deployment
 metadata:
   name: {{ include "go-server.fullname" . }}
   labels:
