@@ -5,8 +5,7 @@ metadata:
   labels:
     app: go-server
 spec:
-  serviceName: go-server-headless
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: go-server
