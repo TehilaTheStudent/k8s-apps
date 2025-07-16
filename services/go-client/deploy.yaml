@@ -20,7 +20,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: SERVER_URL
-              value: "http://go-server-nodeport:8123"
+              value: "http://go-server-nodeport.services-go-server.svc.cluster.local:8123"
             - name: ERROR_SLEEP
               value: "5"
             - name: LOOP_SLEEP
