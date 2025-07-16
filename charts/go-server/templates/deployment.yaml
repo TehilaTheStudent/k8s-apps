@@ -6,6 +6,7 @@ metadata:
   labels:
     app: {{ include "go-server.name" . }}
 spec:
+  serviceName: {{ include "go-server.fullname" . }}-headless
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
