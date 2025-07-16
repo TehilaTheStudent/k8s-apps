@@ -9,4 +9,4 @@ spec:
   ports:
     - port: 8123          # Cluster-internal port
       targetPort: 8080    # Container port
-      nodePort: 30080     # External NodePort (must be between 30000-32767)
+      nodePort: 30081     # External NodePort (must be between 30000-32767)
