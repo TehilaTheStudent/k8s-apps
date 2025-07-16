@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: go-server
+  labels:
+    app: go-server
+spec:
+  serviceName: go-server-headless
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-server
+  template:
+    metadata:
+      labels:
+        app: go-server
+    spec:
+      containers:
+        - name: go-server
+          image: "tehilathestudent/go-server:latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: "8080"
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: http_proxy
+              value: http://7.182.101.79:3128
+            - name: https_proxy
+              value: http://7.182.101.79:3128
+            - name: HTTP_PROXY
+              value: http://7.182.101.79:3128
+            - name: HTTPS_PROXY
+              value: http://7.182.101.79:3128
+            - name: no_proxy
+              value: localhost,127.0.0.1,.svc,.cluster.local
